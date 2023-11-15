@@ -20,8 +20,10 @@ const movieSchema = new Schema({
     required: [true, 'The duration is required']
   },
   genre: {
-    type: [String],
-    enum: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Mystery', 'Thriller', 'Western'],
+    type: [{
+      type: String,
+      enum: ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Mystery', 'Thriller', 'Western'],
+    }],
     default: ['Drama']
   },
   rate: {
