@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="my-5">{{movie.title}}</h1>
+  <p>Year: {{movie.year}}</p>
+  <p>Director: {{movie.director}}</p>
+  <p>Rate: {{movie.rate}}</p>
+  <p>Duration: {{movie.duration}}</p>
+  <p>Genre:</p>
+  <ul>
+    {{#each movie.genre}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+
+  <a href="/movies" class="btn btn-primary">Back</a>
+  <a href="/movies/delete/{{movie._id}}" class="btn btn-danger">Delete</a>
+</div>
