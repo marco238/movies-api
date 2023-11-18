@@ -34,6 +34,27 @@ router.post('/movies/create', (req, res, next) => {
     });
 });
 
+router.get('/movies/update/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  Movie.findById(id)
+    .then((movie) => {
+      res.render('movies/movie-create.hbs', { movie });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.post('/movies/update/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  Movie.findByIdAndUpdate(id, req.body)
+    .then(() => {
+      res.redirect(`/movies/${id}`);
+    })
+});
+
 router.get('/movies/:id', (req, res, next) => {
   const { id } = req.params;
   Movie.findById(id)
