@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
  
 // lo del final es el nombre de la base de datos
-mongoose.connect('mongodb://127.0.0.1:27017/moviesDB');
+mongoose.connect(`mongodb://127.0.0.1:27017/${process.env.DB_NAME}}`);
  
 // When successfully connected
 mongoose.connection.on('connected', () => console.log('Mongoose default connection open'));
